@@ -1,0 +1,41 @@
+==PROF== Connected to process 18946 (/content/GPU-MonoRepo/out)
+==PROF== Profiling "vectorAdd" - 0 (1/1): 0%....50%....100% - 8 passes
+N = 1048576
+Average time over 100 iterations: 3.207801 ms
+Max relative error: 0.000000e+00
+0.000000, 3.000000, 6.000000, 9.000000, 12.000000, 
+==PROF== Disconnected from process 18946
+[18946] out@127.0.0.1
+  vectorAdd(float *, float *, float *, int) (4096, 1, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 7.5
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz         4.61
+    SM Frequency                    Mhz       584.30
+    Elapsed Cycles                cycle       28,916
+    Memory Throughput                 %        90.14
+    DRAM Throughput                   %        90.14
+    Duration                         us        49.47
+    L1/TEX Cache Throughput           %        31.84
+    L2 Cache Throughput               %        29.21
+    SM Active Cycles              cycle    25,101.05
+    Compute (SM) Throughput           %        24.34
+    ----------------------- ----------- ------------
+
+    INF   The kernel is utilizing greater than 80.0% of the available compute or memory performance of the device. To   
+          further improve performance, work will likely need to be shifted from the most utilized to another unit.      
+          Start by analyzing DRAM in the Memory Workload Analysis section.                                              
+
+    Section: Memory Workload Analysis
+    ----------------- ----------- ------------
+    Metric Name       Metric Unit Metric Value
+    ----------------- ----------- ------------
+    Memory Throughput     Gbyte/s       266.00
+    Mem Busy                    %        29.21
+    Max Bandwidth               %        90.14
+    L1/TEX Hit Rate             %            0
+    L2 Hit Rate                 %        33.55
+    Mem Pipes Busy              %        24.34
+    ----------------- ----------- ------------
+
