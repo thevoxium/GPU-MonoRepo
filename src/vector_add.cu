@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../include/util.h"
+#include "../include/utils.h"
 
 
 __global__ void vectorAdd(float* a, float* b, float* c, int N){
