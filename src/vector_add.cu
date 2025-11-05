@@ -1,7 +1,6 @@
-
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
-#include "../include/utils.h"
 
 __global__ void vectorAdd(float* a, float* b, float* c, int N){
   int idx = blockIdx.x * blockDim.x + threadIdx.x;
@@ -10,8 +9,13 @@ __global__ void vectorAdd(float* a, float* b, float* c, int N){
   }
 }
 
-int main(){
-  int N = 1 << 20;
+int main(int argc, char** argv){
+  if (argc < 2){
+    printf("Usage: %s <N>\n", argv[0]);
+    return 1;
+  }
+
+  int N = atoi(argv[1]);
   int size = N * sizeof(float);
 
   float* a = (float*) malloc(size);
@@ -70,10 +74,11 @@ int main(){
     if (rel_err > max_rel_err) max_rel_err = rel_err;
   }
 
+  printf("N = %d\n", N);
   printf("Average time over %d iterations: %f ms\n", iters, total_time / iters);
   printf("Max relative error: %e\n", max_rel_err);
 
-  for(int i = 0; i < 5; i++){
+  for(int i = 0; i < 5 && i < N; i++){
     printf("%f, ", c[i]);
   }
   printf("\n");
